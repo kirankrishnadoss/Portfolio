@@ -1,0 +1,49 @@
+<section class="projects-section">
+  <div class="container">
+    <div class="title-wrapper">
+      <h1 class="project-heading">
+        <span class="heading-line">My Recent</span>
+        <span class="heading-line purple">Works</span>
+      </h1>
+      <p class="subtitle">Here are a few projects I've worked on recently</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card"
+           *ngFor="let project of projects; let i = index"
+           [style.animation-delay.s]="i * 0.15">
+
+        <div class="card-inner">
+
+          <div class="image-container">
+            <img [src]="project.imgPath" [alt]="project.title" class="project-image">
+          </div>
+
+          <div class="project-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <div class="title-underline"></div>
+            <p class="project-description">{{ project.description }}</p>
+
+            <div class="tech-badges">
+              <span *ngFor="let tech of project.techStack" class="badge">{{ tech }}</span>
+            </div>
+
+            <div class="project-buttons">
+  <a *ngIf="project.ghLink" [href]="project.ghLink" target="_blank" class="btn btn-github">GitHub</a>
+  <a *ngIf="project.demoLink" [href]="project.demoLink" target="_blank" class="btn btn-demo">Live Demo</a>
+  <a *ngIf="project.isBlog" [href]="project.ghLink" target="_blank" class="btn btn-blog">Blog</a>
+</div>
+
+<!-- ✅ Status tag goes here -->
+<div *ngIf="project.status" class="status-tag">
+  {{ project.status }}
+</div>
+
+             
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
